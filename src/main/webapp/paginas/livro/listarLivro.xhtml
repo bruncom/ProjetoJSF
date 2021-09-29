@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+
+</h:head>
+<h:body>
+
+	<p:button 
+	 value="Menu" 
+	 outcome="/menu.xhtml" 
+	 styleClass="ui-button-secondary"
+	 style="width auto ; margin: 10px 0"/>
+	
+	
+	
+	
+	
+	<div class="card">
+    <h:form id="form">
+        <p:dataTable id="listaLivros" var="l" value="#{livroBean.livros}" rowKey="#{l.id}">
+           
+
+            <p:column headerText="Id">
+                <h:outputText value="#{l.id}" />
+            </p:column>
+            
+            <p:column headerText="Título">
+                <h:outputText value="#{l.titulo}" />
+            </p:column>
+            
+            <p:column headerText="Editora">
+                <h:outputText value="#{l.editora}" />
+            </p:column>
+            
+            <p:column headerText="Gênero">
+                <h:outputText value="#{l.genero}" />
+            </p:column>
+            
+            <p:column headerText="Estado">
+                <h:outputText value="#{livroBean.editarEstado()}" />
+            </p:column>
+            
+            <p:column headerText="Descrição">
+                <h:outputText value="#{l.descricao}" />
+            </p:column>
+            
+            <p:column headerText="Ações">
+               <p:commandButton 
+               icon="pi pi-times"
+               title="Excluir"
+               action="#{livroBean.apagar(l)}"
+               update="form listaLivros"
+                styleClass="rounded-button ui-button-danger" />
+                
+                <p:commandButton
+                action="#{livroBean.telaEdicao()}"
+                actionListener="#{livroBean.carregarEdicao}"
+                icon="pi pi-user-edit"
+                title="Editar"
+                style="margin-left: 10px"
+                styleClass="rounded-button ui-button-info" >
+                
+                <f:attribute name="livro" value="#{l}"/>
+                
+                </p:commandButton>
+                
+            </p:column>
+           
+        </p:dataTable>
+        </h:form>
+        </div>
+
+</h:body>
+</html>

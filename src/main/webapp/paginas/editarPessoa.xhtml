@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meu projeto JSF</title>
+
+	<style>
+.card {
+	width: 500px;
+	margin: auto;
+}
+
+.ui-panelgrid.showcase-text-align-center 
+.ui-grid-responsive 
+.ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid 
+.ui-panelgrid-content {
+	align-items: center;
+}
+
+/* reset on the showcase style*/
+        body .ui-panelgrid .ui-panelgrid-cell {
+            background-color: transparent;
+        }
+
+        /* example use of styles for your form */
+        .my-heading-row {
+            background-color: var(--surface-c);
+            font-weight: bold;
+        }
+</style>
+
+</h:head>
+<h:body>
+
+
+
+	<div class="card">
+		<h:form>
+			
+
+			<p:panelGrid columns="2"
+				columnClasses="ui-grid-col-2,ui-grid-col-10," layout="grid"
+				styleClass="ui-panelgrid-blank ui-fluid"
+				style="border:0px none; background-color:transparent;">
+
+				<p:row styleClass="my-heading-row">
+            Edição
+        </p:row>
+
+				<p:outputLabel for="@next" value="Nome" />
+				<p:inputText value="#{pessoaBean.pessoa.nome}" />
+
+				<p:outputLabel for="@next" value="Idade" />
+				<p:spinner id="basic" value="#{pessoaBean.pessoa.idade}" />
+
+
+				<p:outputLabel for="@next" value="Profissão" />
+				<p:selectOneMenu value="#{pessoaBean.pessoa.profissao}">
+					<f:selectItem itemLabel="Desenvolvedor" itemValue="Desenvolvedor" />
+					<f:selectItem itemLabel="DBA" itemValue="DBA" />
+					<f:selectItem itemLabel="Front-end" itemValue="Front-end" />
+					<f:selectItem itemLabel="Back-end" itemValue="Back-end" />
+					<f:selectItem itemLabel="FullStack" itemValue="FullStack" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="@next" value="Cidade" />
+				<p:selectOneMenu value="#{pessoaBean.pessoa.cidade}">
+					<f:selectItem itemLabel="Blumenau" itemValue="Blumenau" />
+					<f:selectItem itemLabel="Gaspar" itemValue="Gaspar" />
+					<f:selectItem itemLabel="Brusque" itemValue="Brusque" />
+					<f:selectItem itemLabel="Jaragua do sul" itemValue="Jaragua do sul" />
+					<f:selectItem itemLabel="Piçarras" itemValue="Piçarras" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="@next" value="Email" />
+				<p:inputText value="#{pessoaBean.pessoa.email}" />
+				
+					<p:outputLabel for="@next" value="Senha" />
+				<p:inputText value="#{pessoaBean.pessoa.senha}" />
+
+				<p:row>
+					<p:column styleClass="ui-grid-col-12">
+						<p:commandButton value="Editar" action="#{pessoaBean.editar()}"
+							styleClass="ui-button-primary"
+							style="width: auto; margin-right: 10px" />
+
+
+						<p:commandButton value="Cancelar"
+							action="#{pessoaBean.sairEdicao()}"
+							styleClass="iu-button-secondary" style="width: auto" />
+
+					</p:column>
+				</p:row>
+
+			</p:panelGrid>
+		</h:form>
+	</div>
+
+</h:body>
+</html>

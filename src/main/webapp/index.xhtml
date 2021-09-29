@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meu projeto JSF</title>
+
+	<style>
+.vermelho {
+	color: red;
+}
+
+.caixa-alerta {
+	background-color: #f75348;
+	color: #fff;
+	text-align: center;
+	padding: 30px;
+	margin: 20px;
+	width: 300px;
+}
+</style>
+
+</h:head>
+
+<h:body>
+	<h1>Hello World!</h1>
+
+	<p class="vermelho">Exemplo de parágrafo HTML com a tag "p"</p>
+
+	<h:outputText
+		value="Exemplo de exibição de texto através de outputText" />
+
+	<br />
+	<br />
+	<button>Botão HTML</button>
+	<br />
+	<br />
+	<h:button value="Botão em JSF" />
+	<h:commandButton value="CommandButton" />
+
+	<br />
+	<br />
+	<h:outputText value="Tabela nativa HTML" styleClass="vermelho" />
+	<br />
+	<br />
+	<table>
+		<tr>
+			<th>Código</th>
+			<th>Nome</th>
+			<th>Cidade</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Julio</td>
+			<td>Blumenau</td>
+		</tr>
+	</table>
+
+	<div class="caixa-alerta">Esta é uma div</div>
+
+</h:body>
+</html>

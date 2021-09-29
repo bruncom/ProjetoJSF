@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+
+</h:head>
+<h:body>
+
+	<p:button 
+	 value="Menu" 
+	 outcome="/menu.xhtml" 
+	 styleClass="ui-button-secondary"
+	 style="width auto ; margin: 10px 0"/>
+	
+	
+	
+	
+	
+	<div class="card">
+    <h:form id="form">
+        <p:dataTable id="listaPessoas" var="p" value="#{pessoaBean.pessoas}" rowKey="#{p.id}">
+            <f:facet name="header">
+               Lista de Cadastro
+            </f:facet>
+            
+            <p:column headerText="Nome">
+                <h:outputText value="#{p.nome}" />
+            </p:column>
+            
+            <p:column headerText="Profissão">
+                <h:outputText value="#{p.profissao}" />
+            </p:column>
+            
+            <p:column headerText="Idade">
+                <h:outputText value="#{p.idade}" />
+            </p:column>
+            
+            <p:column headerText="Cidade">
+                <h:outputText value="#{p.cidade}" />
+            </p:column>
+            
+            <p:column headerText="Email">
+                <h:outputText value="#{p.email}" />
+            </p:column>
+            
+            
+            <p:column headerText="Ações">
+               <p:commandButton 
+               icon="pi pi-times"
+               title="Excluir"
+               action="#{pessoaBean.apagar(p)}"
+               update="form listaPessoas"
+                styleClass="rounded-button ui-button-danger" />
+                
+                <p:commandButton
+                action="#{pessoaBean.telaEdicao()}"
+                actionListener="#{pessoaBean.carregarEdicao}"
+                icon="pi pi-user-edit"
+                title="Editar"
+                style="margin-left: 10px"
+                styleClass="rounded-button ui-button-info" >
+                
+                <f:attribute name="pessoa" value="#{p}"/>
+                
+                </p:commandButton>
+                
+            </p:column>
+           
+        </p:dataTable>
+        </h:form>
+        </div>
+
+</h:body>
+</html>

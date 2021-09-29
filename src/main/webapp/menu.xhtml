@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meu projeto JSF</title>
+	
+	<style>
+h1 {
+	padding: 20px;
+	color: #333d4f;
+	text-align: center;
+	font-family: Calibri;
+}
+
+
+</style>
+</h:head>
+<h:body>
+
+	<h1>Bem vindo</h1>
+
+	<div class="card">
+		<h:form>
+			<p:growl id="messages" />
+
+			<p:menubar>
+				<p:submenu label="Cadastros" icon="pi pi-plus">
+					<p:menuitem value="Nova pessoa" icon="pi pi-user-plus"
+						outcome="/paginas/cadastrarPessoa.xhtml" />
+						<p:menuitem value="Novo livro" icon="pi pi-book"
+						outcome="/paginas/livro/cadastrarLivro.xhtml" />
+				</p:submenu>
+				
+
+				<p:divider layout="vertical" />
+
+				<p:submenu label="Pesquisas" icon="pi pi-search">
+					<p:menuitem value="Listar Pessoas" icon="pi pi-users"
+						outcome="/paginas/listarPessoa.xhtml" />
+						<p:menuitem value="Acervo de livros" icon="pi pi-inbox"
+						outcome="/paginas/livro/listarLivro.xhtml" />
+				</p:submenu>
+
+				<f:facet name="options">
+
+					<p:button value="Sair" icon="pi pi-fw pi-sign-out"
+						styleClass="ui-button-info" />
+				</f:facet>
+
+			</p:menubar>
+		</h:form>
+	</div>
+
+</h:body>
+</html>

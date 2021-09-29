@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meu projeto JSF</title>
+</h:head>
+
+<style>
+	h1 {
+	padding: 20px;
+	color: #333d4f;
+	text-align: center;
+	font-family: Calibri;
+}
+.card {
+	width: 500px;
+	margin: auto;
+}
+
+.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid .ui-panelgrid-content {
+	align-items: center;
+}
+
+/* reset on the showcase style*/
+body .ui-panelgrid .ui-panelgrid-cell {
+	background-color: transparent;
+}
+
+/* example use of styles for your form */
+.my-heading-row {
+	background-color: var(- -surface-c);
+	font-weight: bold;
+}
+</style>
+
+
+<h:body>
+
+			<h1>Bem vindo</h1>
+			
+<div class="card">
+    <h:form>
+        <p:messages id="msgs"/>
+
+        <h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
+            <p:outputLabel for="Email" value="Email:"/>
+            <p:inputText id="Email" value="#{remoteValidationView.firstname}" required="true" label="Email">
+                <f:validateLength minimum="2"/>
+            </p:inputText>
+            <p:message for="Email" display="icon"/>
+
+            <p:outputLabel for="Senha" value="Senha:"/>
+            <p:password id="Senha" value="#{remoteValidationView.lastname}" label="Senha" required="true">
+            
+                <f:validateLength minimum="2"/>
+                <p:ajax update="msgLastname" event="keyup"/>
+            </p:password>
+            <p:message for="Senha" id="msgLastname" display="icon"/>
+
+        </h:panelGrid>
+
+        <p:commandButton value="Login" update="@form" action="#{remoteValidationView.save}" icon="pi pi-check"/>
+    </h:form>
+</div>
+
+
+</h:body>
+</html>
